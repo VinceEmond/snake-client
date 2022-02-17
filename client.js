@@ -1,14 +1,14 @@
 const { builtinModules } = require('module');
 const net = require('net');
 
+const session = net.createConnection({
+  host: "165.227.47.243",
+  port: 50541
+});
 
 // establishes a connection with the game server
 const connect = function() {
 
-  const session = net.createConnection({
-    host: "165.227.47.243",
-    port: 50541
-  });
 
   // interpret incoming data as text
   session.setEncoding("utf8");
@@ -17,7 +17,7 @@ const connect = function() {
   session.on("connect", (data) => {
     console.log("Data from server:", data);
     console.log("Succesfully connected to server");
-    session.write(`Name: 8=>`);
+    session.write(`Name: >>>`);
 
   });
 
